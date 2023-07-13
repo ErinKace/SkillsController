@@ -1,10 +1,7 @@
 package org.launchcode.skillstracker.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @ResponseBody
@@ -29,7 +26,7 @@ public class SkillsController {
     public String skillForm() {
         return "<html>" +
                 "<body>" +
-                "<form action='form' method='post'>" +
+                "<form action='form-result' method='post'>" +
                 "<label for='name'>Name</label>"+
                 "<input type='text' name='name'>" +
                 "<label for='firstLanguage'>My First Favorite Language is:</label>" +
@@ -56,21 +53,31 @@ public class SkillsController {
                     "<option value='html'>HTML</option>" +
                     "<option value='python'>Python</option>" +
                 "</select>" +
-                "</form>" +
                 "<input type='submit' value='Submit'>"+
+                "</form>" +
                 "</body>" +
                 "</html>";
     }
-    @PostMapping("/form")
+//    @PostMapping("/form")
+    @RequestMapping(value="/form-result", method={RequestMethod.GET,RequestMethod.POST})
     public String formResults(@RequestParam String name, @RequestParam String firstLanguage, @RequestParam String secondLanguage, @RequestParam String thirdLanguage) {
         return "<html>" +
                 "<body>" +
-                "<h1>"+name+"Skills Tracker</h1>" +
-                "<ol>" +
-                "<li>"+firstLanguage+"</li>" +
-                "<li>"+secondLanguage+"</li>" +
-                "<li>"+thirdLanguage+"</li>" +
-                "</ol>" +
+                "<h1>"+name+"</h1>" +
+                "<table style='width=800px;border: 2px solid;font-size:20px'>" +
+                "<tr>" +
+                    "<td>First</td>" +
+                    "<td>"+firstLanguage+"</td>" +
+                "</tr>" +
+                "<tr>" +
+                    "<td>Second</td>" +
+                    "<td>"+secondLanguage+"</td>" +
+                "</tr>" +
+                "<tr>" +
+                    "<td>Third</td>"+
+                    "<td>"+thirdLanguage+"</td>" +
+                "</tr>" +
+                "</table>" +
                 "</body>" +
                 "</html>";
     }
