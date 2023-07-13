@@ -28,7 +28,7 @@ public class SkillsController {
                 "<body>" +
                 "<form action='form-result' method='post'>" +
                 "<label for='name'>Name</label>"+
-                "<input type='text' name='name'>" +
+                "<input type='text' name='name'/>" +
                 "<label for='firstLanguage'>My First Favorite Language is:</label>" +
                 "<select name='firstLanguage'>" +
                     "<option value='java'>Java</option>" +
@@ -53,7 +53,7 @@ public class SkillsController {
                     "<option value='html'>HTML</option>" +
                     "<option value='python'>Python</option>" +
                 "</select>" +
-                "<input type='submit' value='Submit'>"+
+                "<input type='submit' value='Submit'/>"+
                 "</form>" +
                 "</body>" +
                 "</html>";
@@ -64,7 +64,7 @@ public class SkillsController {
         return "<html>" +
                 "<body>" +
                 "<h1>"+name+"</h1>" +
-                "<table style='width=800px;border: 2px solid;font-size:20px'>" +
+                "<table style='width=100%;border: 2px solid;font-size:20px'>" +
                 "<tr>" +
                     "<td>First</td>" +
                     "<td>"+firstLanguage+"</td>" +
